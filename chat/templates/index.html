@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <div>
+        <h4 id="label-username">Username</h4>
+        <input type="text" name="" id="username"> <input type="button" id="btn-join" value="join room">
+    </div>
+    <div id="video_container">
+        <div>
+            <video src="local-video" style="border: 2px solid black; margin: 10px 10px;" autoplay playsinline></video>
+        </div>
+
+    </div>
+    <div style="margin: 15px 15px ;">
+        <h4>Chat</h4>
+        <input type="text" name="" id="">
+        <input type="button" value="Send Message">
+    </div>
+
+    <div>
+        <input type="button" value="Audio mute">
+    </div>
+    <div>
+        <input type="button" value="Video off">
+    </div>
+    <div>
+        <input type="button" value="Share Screen">
+    </div>
+    <div>
+        <input type="button" value="Join Room">
+    </div>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
