@@ -200,7 +200,7 @@ function createOfferer(peerUsername, receiver_channel_name){
     setOnTrack(peer, remoteVideo);
 
     mapPeer[peerUsername] = [peer, dc];   
-    peer.addEventListener('iceconnectionstatechange',()=>{
+    peer.addEventListener('iceconnectionstatechange',() =>{
         var iceConnectionState = peer.iceConnectionState;
 
         if(iceConnectionState === 'failed' || iceConnectionState === 'disconnected' || iceConnectionState === 'closed'){
@@ -210,7 +210,7 @@ function createOfferer(peerUsername, receiver_channel_name){
                 peer.close();
                
             }
-            remoteVideo(remoteVideo);
+            removeVideo(remoteVideo);
         }
     });
 
@@ -268,7 +268,7 @@ function createOfferer(peerUsername, receiver_channel_name){
             if (iceConnectionState != 'closed'){
                 peer.close();
             }
-            remoteVideo(remoteVideo);
+            removeVideo(remoteVideo);
         }
     });
 
@@ -347,7 +347,7 @@ function createOfferer(peerUsername, receiver_channel_name){
 
  }
 
- function remoteVideo(video){
+ function removeVideo(video){
     var videoWrapper = video.parentNode;
     videoWrapper.parentNode.removeChild(videoWrapper); 
 
