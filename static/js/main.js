@@ -1,4 +1,4 @@
-console.log('working now');
+console.log('working now!!');
 
 var labelUsername = document.querySelector('#label-username');
 var usernameInput = document.querySelector('#username');
@@ -11,6 +11,7 @@ var webSocket;
 function webSocketOnmessage (event){
     var parsedData = JSON.parse(event.data);
     var message  = parsedData['message'];
+    
     console.log('message :', message);
 
 }
@@ -46,9 +47,13 @@ btnJoin.addEventListener('click',()=>{
 
     webSocket.addEventListener('open',(e)=>{
         console.log('Connection opened');
-    } 
-    );
-    webSocket.addEventListener('message',webSocketOnmessage  );
+
+        var jsonStr = JSON.stringify({
+            "message": "This is message",
+        })
+        webSocket.send(jsonStr);
+    });
+    webSocket.addEventListener('message',webSocketOnmessage);
     
     webSocket.addEventListener('close',(e)=>{
         console.log('Connection closed');
@@ -59,4 +64,5 @@ btnJoin.addEventListener('click',()=>{
 
 
 
-})
+});
+
