@@ -1,4 +1,7 @@
-console.log('working now!!!!!!!!!!!!!');
+console.log('working now>>>>>>>>>>>>>');
+var loc = window.location;
+console.log(loc.pathname)
+console.log(loc.pathname.split('chat/')[1].split('/')[0])
 
 
 
@@ -61,15 +64,20 @@ btnJoin.addEventListener('click',()=>{
     var labelUsername = document.querySelector('#label-username'); 
     labelUsername.innerHTML = username;
 
-    var loc = window.location;
+    // var loc = window.location;
+    // console.log(loc)
     var wsStart = 'ws://';
+    var wsEnd = "ws/call";
 
     if (loc.protocol == "https:"){
         wsStart = "wss://";
 
     }
 
-    var endpoint = wsStart + loc.host + loc.pathname;
+    // var endpoint = wsStart + loc.host + loc.pathname;
+    const roomName = loc.pathname.split('chat/')[1].split('/')[0];
+    var endpoint = wsStart + loc.host + "/" + wsEnd + '/' + roomName + '/'
+
     console.log('endpoint:',endpoint); //Connection host 
 
     webSocket = new WebSocket(endpoint); 

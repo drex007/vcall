@@ -4,5 +4,5 @@ from .views import home
 
 urlpatterns = [
 
-    path('', home, name="home"),
+    path('<int:room_name>/', home, name="home"),
 ]
